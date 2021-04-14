@@ -1,0 +1,84 @@
+public with sharing class WeekSixHomework {
+    // Remember Sets & Maps??  We did a little practice with Lists in week 2, but we need to make sure we know how to use Sets & Maps as well!!
+	
+    public static void setsReview(){
+
+        //Your assignment: Play with Sets!
+
+        // 1.  Create a set of Strings and add at least 5 entries
+        Set <string> myColors = new Set <string>{'Red', 'Blue','Green', 'Orange', 'Purple'};
+          
+
+        //Use System.debug to print out the size of your set
+        system.debug('The myColors set has a total of ' + myColors.size() + ' colors');
+
+
+        //Add an item to your set that already exists
+        myColors.add('Blue');       
+
+        //Use System.debug to print out the size again,  they should be the same!
+
+         system.debug('Now the myColors set has a total of ' + myColors.size() + ' colors');
+
+        // 2.  Bonus Points!  Check out the documentation on Sets. Go to the section titled Set Methods. Pick one of the methods to try out and print the results to the debug log.  
+        // Documentation: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_set.htm
+        //Hint:  can you print out a boolean that indicates if the set is empty?  Can you clone it?
+		
+        myColors.isEmpty();
+        System.debug('My List is empty? '+ myColors.isEmpty());
+        Set <string> myColorClone = myColors.clone();
+        System.debug('Clone List = ' + myColorClone);
+    }
+
+    public static void mapsReview () {
+
+        //Time to get creative!  
+
+        // 1. Create a new Map.  You can use whatever primitives/object types you like, as long as they make sense.
+        // Try to add at least 5 Key/value pairs.
+        Map<Integer, String> myMap = new Map  <Integer, String>();
+         myMap.put(1, 'Melissa');
+         myMap.put(2, 'Emily');
+         myMap.put(3, 'Xavier');
+         myMap.put(4, 'Blu');
+         myMap.put(5, 'Addison');
+
+
+        //Now, in the debug log, print out  a list of the values.
+         System.debug('myMap contains: ' + myMap);
+
+
+        //Can you print out a set of the Keys?
+		 Set<Integer> keyMap = myMap.keySet();
+         System.debug('List of Keys: ' + keyMap);
+
+
+        // 2. Bonus!  Check out the documentation on Maps. Go to the section titled Map Methods.  Manipulate the Map using one of the methods defined in the documentation
+        // Documentation: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_map.htm
+        // Hint: Can you remove an entry using the key?  Can you clear out the map without deleting it?
+		myMap.remove(1);
+        myMap.clear();
+		System.assertEquals(4,5);
+    }
+
+    public static void listsReview() {
+
+        // 1. Create a list of Strings.  Add at least 5 entries to the list, all in one line
+        List <string> stringList = new List <string> {'Monopoly', 'Jenga', 'Scrabble', 'Parcheesi', 'Risk'};
+
+
+        // 2. Create a second list of Strings and add 5 or more entries to this list.
+        List <string> nextList = new List <string> {'Poker', 'Rummy', 'Blackjack', 'Crazy Eights', 'Go Fish'};
+
+
+        //3.  Bonus! Using the documentation on standard List methods from Salesforce, 
+        //add the items from your first list, to your second list with one command
+        // Documentation: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_list.htm
+        stringList.addAll(nextList);
+        
+
+        //4.  Can you now loop through your combined list and print it to the debug log?  (Hint:  Check the documentation!)
+        System.debug('stringList contains: ' + stringList);
+    }
+        
+}
